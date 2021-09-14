@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue3_CND引入</title>
+</head>
+
+<body>
+  <div id="app">呵呵哈哈哈</div>
+
+  <!-- 
+    方式1：
+    <script type="x-template" id="template">
+      <h2>{{num}}</h2>
+      <h2>{{computeNum}}</h2>
+      <button @click="add">+</button>
+      <button @click="sub">-</button>
+    </script>
+ -->
+
+  <!-- 方式2： （https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/template）-->
+  <template id="template">
+    <h2>{{num}}</h2>
+    <h2>{{computeNum}}</h2>
+    <button @click="add">+</button>
+    <button @click="sub">-</button>
+  </template>
+
+  <script src="https://unpkg.com/vue@next"></script>
+
+  <script>
+    const data = {
+      template: '#template',
+      data() {
+        return {
+          num: 0
+        }
+      },
+      computed: {
+        computeNum() { return this.num + 1 }
+      },
+      methods: {
+        add() {
+          this.num++
+        },
+        sub() {
+          this.num--
+        }
+      }
+    }
+    const app = Vue.createApp(data)
+    app.mount('#app')
+
+  </script>
+</body>
+
+</html>
