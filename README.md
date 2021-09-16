@@ -144,10 +144,12 @@ vue-next源码`packages/runtime-core/src/componentOptions.ts`中的600行左右
 - React的开发模式：
   - React使用的jsx，类似于js的一种语法，将html标签在js中书写
   - 通过**babel**将jsx语法**编译**成**React.createElement**函数调用
+  - 而React纯JS写法太过灵活，使他在编译时优化方面先天不足。所以，React的优化主要在运行时
 - Vue也支持jsx开发模式：
   - 但是大多数情况下，使用基于HTML的模板语法（@click、v-bind、v-once等）；
   - 在模板中，允许以**声明式**的方式将**DOM**和**底层组件实例的数据（data）**绑定在一起；
   - 在底层实现中，Vue将模板编译成虚拟DOM渲染函数。
+  - Vue使用模版语法，可以在编译时对确定的模版作出优化。
 
 ### 1】v-once
 
